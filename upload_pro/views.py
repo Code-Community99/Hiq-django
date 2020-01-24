@@ -67,10 +67,7 @@ def upload(request):
         else:
             project.objects.create(project_name = request.POST['project_name'] ,
             project_description = request.POST["project_description"] , uid = signup_user.objects.get(Email = request.session["email"]), file = request.FILES["file"])
-            print(request.session["username"])
             return redirect("profile/")
 
     else:
-        print("Null and void")
-
         return render(request , './upload_pro/upload.html' , context = {"form":uploadform})

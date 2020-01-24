@@ -51,6 +51,8 @@ def login(request):
 
             else:
                 error_var = "Wrong credentials Please try again"
+                form = loginfrm(request.POST)
+                return render (request , "./login/login.html" , context = {"form": form , "error":error_var ,"sess":sess , "alredy":alredylog})
     else:
         form = loginfrm(request.POST)
         return render (request , "./login/login.html" , context = {"form": form , "error":error_var ,"sess":sess , "alredy":alredylog})

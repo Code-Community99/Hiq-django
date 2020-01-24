@@ -1,0 +1,51 @@
+*
+{
+
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    top:0;
+
+}
+
+body
+{
+    background-image: linear-gradient(125deg,#b8e974,#6a89cc);
+}
+
+
+
+.signup-cont
+{
+    width: 50%;
+    margin: 0px auto;
+    /* background-color: red; */
+}
+form{
+    margin:  0 auto;
+    width: 60%;
+    position: absolute;
+    height: 75%;
+    left:20%;
+    background-color: inherit;
+    margin-top: 0%;
+}
+
+#email , #password,#password,#cpassword,#fname,#lname,#profile{
+    height: 40px;
+    border-radius: 5px;
+    margin:1px;
+    width: 95%;
+}
+
+.title{
+	text-align: center;
+}
+label{
+	margin: 0px;
+	padding:0px;
+}
+input{
+	padding-top: 0px;
+	margin: 0px;
+}

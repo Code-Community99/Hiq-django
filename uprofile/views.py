@@ -67,37 +67,37 @@ def update(request):
 
 
 
-def view_collequeprof(request , collequename):
-    errorlog = ""
-    collequedetails = ""
-    uname = ""
-    try:
-        statusdecision = signup_user.objects.get(Email = request.session["email"]).logstatus
-
-    except:
-
-        uname = "You are not yet logged in."
-        return redirect("/login/")
-    else:
-
-        try:
-            projects = project.objects.filter(uid_id = signup_user.objects.get(Email = collequename).uid)
-            # print(projects[0])
-
-        except:
-            errorlog = "{} has no projects".format(collequename)
-
-        else:
-            try:
-                collequedetails = signup_user.objects.get(Email = collequename)
-
-            except:
-                pass
-
-            return render(request ,  "./uprofile/colleque.html" , context = {"projects":projects ,"error":errorlog, "owner":collequename , "collequedetails":collequedetails})
-            # return HttpResponse("Viewing {}\'s project(s)".format(collequename))
-
-
+# def view_collequeprof(request , collequename):
+#     errorlog = ""
+#     collequedetails = ""
+#     uname = ""
+#     try:
+#         statusdecision = signup_user.objects.get(Email = request.session["email"]).logstatus
+#
+#     except:
+#
+#         uname = "You are not yet logged in."
+#         return redirect("/login/")
+#     else:
+#
+#         try:
+#             projects = project.objects.filter(uid_id = signup_user.objects.get(Email = collequename).uid)
+#             # print(projects[0])
+#
+#         except:
+#             errorlog = "{} has no projects".format(collequename)
+#
+#         else:
+#             try:
+#                 collequedetails = signup_user.objects.get(Email = collequename)
+#
+#             except:
+#                 pass
+#
+#             return render(request ,  "./uprofile/colleque.html" , context = {"projects":projects ,"error":errorlog, "owner":collequename , "collequedetails":collequedetails})
+#             # return HttpResponse("Viewing {}\'s project(s)".format(collequename))
+#
+#
 
 
 
