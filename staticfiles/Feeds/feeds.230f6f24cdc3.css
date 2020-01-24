@@ -1,0 +1,62 @@
+body
+{
+    background-image: linear-gradient(to left,#456,#9fa);
+}
+
+.feed1
+{
+    box-sizing: border-box;
+    display: block;
+    background-color: #000;
+    color: #fff;
+    border-radius: 5vw;
+    margin-bottom: 5vw;
+}
+
+h1
+{
+    text-decoration: underline;
+}
+
+#image
+{
+    display: inline-block;
+    position: relative;
+    top: 0px;
+    height: auto;
+}
+
+img
+{
+    width: 15vw;
+    height: auto;
+    margin: 3vw;
+    border-radius: 3vw;
+    position: relative;
+    top: 0px;
+}
+
+#feed
+{
+    display: inline-block;
+    width: 70%;
+    height: 90%;
+}
+
+#post-time
+{
+    text-align: right;
+    color: #0f0;
+    font-size: 1.4em;
+}
+
+dd
+{
+    font-size: 20px;
+}
+
+
+#feed-desc
+{
+    margin-left: 3vw;
+}

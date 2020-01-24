@@ -1,0 +1,76 @@
+{% extends './base.html' %}
+
+{% load static %}
+
+{% block css%}{% static './Feeds/feeds.css' %}{% endblock %}
+
+{% block title %} HiQ | Feeds {% endblock %}
+
+
+{% block header %}
+    <h1 >Latest Feeds in HiQ | Feeds </h1>
+    <br>
+
+    <div class="nav-bar container">
+        <div class="navbar first options">
+            <a href="{% url 'home:home' %}" class="btn btn-warning">Home</a>
+        </div>
+        <div class="navbar options">
+            <a href="{% url 'events:events' %}" class="btn btn-warning">Events</a>
+        </div>
+            <!-- <div class="navbar options"> -->
+              <!-- <a href="#">Projects</a> -->
+            <!-- </div> -->
+        <!-- <div class="navbar options">
+            <a href="{% url 'developers:contact' %}" class="btn btn-warning">Contact</a>
+        </div> -->
+
+        <div class="navbar options">
+            <a href="{% url 'profile:profile' %}" class="btn btn-warning">Profile</a>
+        </div>
+
+        <div class="navbar options">
+            <a href="{% url 'gallery:view_photo' %}" class="btn btn-warning">Gallery</a>
+        </div>
+
+    </div>
+
+{% endblock %}
+
+{% block content %}
+<div class="row">
+
+    <div class="col-sm-12 col-md-12 col-lg-12 child1">
+        <div class="mainfeed">
+        {% for feed in updates %}
+            <div class="feed1">
+
+                <div id="image">
+                    <img src="/media/{{feed.uid.profilepic}}" alt="{{feed.uid.Email}}" id = "profile">
+                </div>
+
+                <div id="feed">
+                        <dl>
+                            <dt><h1>{{feed.uid.First_Name}}</h1></dt>
+                            <dd id="feedHeade">
+                                <a href="{% url 'coms:comments' feed.Fid %}">{{feed.Heading}}</a>
+                                <br>
+                                <p id="feed-desc">{{feed.feed}}</p>
+                            </dd>
+                        </dl>
+                    <br>
+                    <p id="post-time">{{feed.post_time}}</p>
+                </div>
+                <br>
+
+            </div>
+        {% endfor %}
+
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}
+
+{% block footer %} {% endblock %}

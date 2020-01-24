@@ -1,0 +1,26 @@
+{% extends './base.html' %}
+
+{% block header %}
+    <h1>
+        Add Events
+    </h1>
+{% endblock %}
+
+
+
+{% block content %}
+    <p>
+        {{errorlog}}
+    </p>
+    <form class="" action="{% url 'events:add_event' %}" method="post">
+        {% csrf_token %}
+        <table>
+            {{events.as_table}}
+            <tr>
+                <td>Event Date</td>
+                <td><input type="datetime-local" name="eventup_date"></td>
+            </tr>
+        </table>
+        <input type="submit" name="submit" value="Add Event">
+    </form>
+{% endblock %}

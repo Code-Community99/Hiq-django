@@ -15,6 +15,7 @@ urlpatterns = [
     url("events/" , include("events.urls")),
     url("profile/" , include("uprofile.urls")),
     url("upload/" , include("upload_pro.urls")),
+    url("developers/" , include("developers.urls")),
     url("logout/" , include("logout.urls")),
     url("gallery/" , include("gallery.urls")),
     url("Feeds/" , include("Feeds.urls")),
