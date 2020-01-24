@@ -1,0 +1,64 @@
+{% extends './base.html' %}
+
+{% load static %}
+{% block title %} HiQ | Dev Team {% endblock %}
+
+{% block header %}
+    <div class="container">
+        <h1 class="text-center">About Developers</h1>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h1 class="text-center">HiQ deleopers are a team of above ten people. Developers inspired to come together and build the world</h1>
+
+    </div>
+{% endblock %}
+
+
+{% block footer %}
+    <div class="container">
+
+        <div class="row">
+            <div class="col-12-xs col-4-sm col-4-md col-12-lg">
+                <div class="nav">
+                    <div class="navbar options">
+                         <a href="{% url 'home:home' %}" class="btn btn-warning">Home</a>
+                    </div>
+<!--
+                  <div class="navbar options">
+                    <a href="{% url 'events:events' %}" class="btn btn-warning">Events</a>
+                  </div> -->
+
+
+                  <!-- <div class="navbar options"> -->
+                    <!-- <a href="#">Projects</a> -->
+                  <!-- </div> -->
+                  <!-- <div class="navbar options">
+                    <a href="{% url 'developers:contact' %}" class="btn btn-warning">Contact</a>
+                  </div> -->
+
+                  <div class="navbar options">
+                    <a href="{% url 'profile:profile' %}" class="btn btn-warning">Profile</a>
+                  </div>
+
+                  <div class="navbar options">
+                    <a href="{% url 'Feeds:Feeds' %}" class="btn btn-warning">Feeds</a>
+                  </div>
+
+                  <div class="navbar options">
+                      <a href="{% url 'gallery:view_photo' %}" class="btn btn-warning">Gallery</a>
+                  </div>
+            </div>
+
+            <div class="col-12-xs col-4-sm col-4-md col-12-lg">
+                Hello
+            </div>
+
+            <div class="col-12-xs col-4-sm col-4-md col-12-lg">
+                Hello
+            </div>
+        </div>
+    </div>
+{% endblock %}

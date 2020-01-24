@@ -1,0 +1,104 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta name="theme-color" content="#6a89cc">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <link rel="icon" href="{% static './events/img/icon.jpeg' %}">
+    <link rel="stylesheet" href="{% static './events/css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static './events/css/styles.css' %}">
+    <meta charset="utf-8">
+    <title>HiQ | Events</title>
+  </head>
+  <body class="body">
+      <div class="nav">
+            <div class="navbar car">
+              <img src="{% static './home/img/career.svg' %}" class="logo" alt="">
+            </div>
+
+            <div class="navbar ham">
+              <img src="{% static './home/img/hamburger.jpg' %}" class="logo" alt="">
+            </div>
+
+            <div class="navbar options">
+              <a href="{% url 'home:home' %}">Home</a>
+            </div>
+
+            <div class="navbar options">
+              <a href="{% url 'profile:profile' %}">Profile</a>
+            </div>
+
+            <div class="navbar options">
+              <a href="{% url 'Feeds:Feeds' %}">Feeds</a>
+            </div>
+
+            <div class="navbar options">
+              <a href="{% url 'gallery:view_photo' %}">Gallery</a>
+            </div>
+     <!--
+            <div class="navbar options">
+              <a href="{% url 'developers:contact' %}">Contact</a>
+            </div> -->
+
+
+                        {% if loginshow %}
+
+                            <div class="navbar options first">
+                                <a href="{% url 'logout:logout' %}"><button type="button" id="showForm"  class="btn btn-danger topbtn" name="button">Log out</button></a>
+                            </div>
+                        {% else %}
+                        <div class="navbar options first">
+                            <a href="{% url 'login:login' %}"><button type="button" id="showForm"  class="btn btn-success topbtn" name="button">Log in</button></a>
+                        </div>
+                        {% endif %}
+
+        </div>
+
+
+    <div class="events-post">
+      <div class="add-feed-section ev">
+          <form class="form-group" action="{% url 'events:add_event' %}" method="post">
+              {% csrf_token %}
+
+              <textarea type="text" name="description" class="text-feed" rows="3"  placeholder="write a brief description" required></textarea>
+              <input type="text" class="form-control ll" name="location" placeholder="Location" required>
+              <input type="datetime-local" class="form-control ll" name="eventup_date" required>
+              <a href="{% url 'events:add_event' %}"><button class="btn btn-default post-btn" name="button">Post</button></a>
+
+          </form>
+      </div>
+      <div class="hide">
+        <span>Add</span>
+      </div>
+      <hr>
+
+      <!-- event template -->
+        {% for users in events %}
+
+        <div class="feed">
+          <div class="row">
+            <div class="col-md-1">
+              <img src="/media/{{users.event_organizer.profilepic}}"class="profile" alt="profile">
+            </div>
+            <div class="col-md-5 name usr">
+              <p>{{users.event_organizer.First_Name}}</p>
+            </div>
+          </div>
+          <!-- text template -->
+          <p class="feed-text">{{users.event_description}}</p>
+          <br>
+          <div class="row comment-section">
+            <span class="com">Location :</span> <p class="count">{{users.event_venue}}</p> <span class="time">{{users.eventup_date}}</span>
+          </div>
+        </div>
+
+        {% endfor %}
+      <!-- end -->
+
+    </div>
+  </body>
+  <script src="https://code.jquery.com/jquery-3.3.1.js" ></script>
+ <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+ <script src="{% static 'events/js/App.js' %}"></script>
+</html>

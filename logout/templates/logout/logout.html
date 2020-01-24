@@ -1,0 +1,58 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+
+        <meta name="theme-color" content="#6a89cc">
+        <meta name="viewport" content="initial-scale=1.0 , maximum-scale=1.0, user-scalable=no">
+        <link rel="icon" href="{% static 'home/img/icon.jpeg' %}">
+        <link rel="stylesheet" href="{% static 'home/css/bootstrap.css' %}">
+        <link rel="stylesheet" href="{% static 'home/css/styles.css' %}">
+
+        <meta charset="utf-8">
+        <title>Hiq | logout</title>
+    </head>
+    <body>
+        <h1>
+            Logged out succsessfully
+        </h1>
+        <div class="navbar options">
+             <a href="{% url 'home:home' %}">Home</a>
+        </div>
+
+        <div class="navbar options">
+        <a href="{% url 'events:events' %}">Events</a>
+        </div>
+
+
+        <!-- <div class="navbar options"> -->
+        <!-- <a href="#">Projects</a> -->
+        <!-- </div> -->
+        <div class="navbar options">
+        <a href="{% url 'developers:contact' %}">Contact</a>
+        </div>
+
+        <div class="navbar options">
+        <a href="{% url 'profile:profile' %}">Profile</a>
+        </div>
+
+        <div class="navbar options">
+        <a href="{% url 'Feeds:Feeds' %}">Feeds</a>
+        </div>
+
+        <div class="navbar options">
+          <a href="{% url 'login:login' %}">
+              <button type="button" id="showForm"  class="btn btn-success topbtn" name="button">Log in</button>
+          </a>
+        </div>
+        <!-- <div class="navbar options">
+          <button type="button" id="showForm" class="btn btn-info topbtn" name="button">Sign Up</button>
+        </div> -->
+        </div>
+        <div class="navbar first options">
+        <a href="{% url 'home:home' %}">Gallery</a>
+        </div>
+
+
+    </body>
+</html>

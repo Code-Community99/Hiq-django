@@ -1,0 +1,20 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0 ,user-scalable=no,maximum-scale =1.0">
+        <title>HiQ | Upload</title>
+    </head>
+    <body>
+        <form class="" action="{% url 'upload:upload' %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <table>
+                    {{form.as_table}}
+                </table>
+                <input type="submit" name="submit" value="upload">
+        </form>
+        <a href="{% url 'home:home' %}">Go back</a>
+    </body>
+</html>

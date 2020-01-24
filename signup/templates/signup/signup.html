@@ -1,0 +1,87 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta name="theme-color" content="#6a89cc">
+        <meta name="viewport" content="initial-scale=1.0 , maximum-scale=1.0, user-scalable=no">
+        <link rel="icon" href="{% static './signup/img/icon.jpeg' %}">
+        <link rel="stylesheet" href="{% static './signup/css/bootstrap.css' %}">
+        <link rel="stylesheet" href="{% static './signup/css/signup.css' %}">
+        <meta charset="utf-8">
+        <title>HiQ | Signup</title>
+    </head>
+    <body>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 col-xs-8 col-sm-8 col-lg-8 col-xl-8 signup-cont">
+
+                        <div class="form" id="FormRes">
+                          <form class="form-group signupForm" id="signUp" action="{% url 'signup:signup' %}" method="get" enctype="multipart/form-data" >
+                            <div class="title">
+                              <h2>Sign Up page</h2>
+                            </div>
+
+                                {% for errormessage in error_log %}
+                                <p>{{errormessage}}</p>
+                                {% endfor %}
+
+                            <!-- <p class="close">X</p> -->
+                            {% csrf_token %}
+                            <div class="content">
+                            <label class="k z" for="fname">First name</label>
+                            <input type="text" id="fname" class="form-control" name="fname" placeholder="First name" required>
+                            <label class="k z" for="sname">Last name</label><br>
+                            <input type="text" id="fname" class="form-control" name="sname" placeholder="Last name" required>
+                            <label class="k z" for="email">Email</label><br>
+                            <input type="email" id="email" class="form-control" name="email" placeholder="email" required>
+                            <label for="Password">Password</label><br>
+                            <input type="password" id="password" class="form-control" name="password" placeholder="password" required>
+
+                            <label for="Password">Confirm Password</label><br>
+                            <input type="password" id="cpassword" class="form-control" name="cpassword" placeholder="confirm password" required>
+                            <label for="pnumber">Phone Number</label><br>
+                            <input type="number" id="email" class="form-control" name="pnumber" maxlength="10" placeholder="Phone number" required>
+                            <label for="profile">Upload Profile</label><br>
+                            <input type="file" id="profile" class="form-control" name="profile"  accept=".png,.jpeg,jpg"required>
+                            <br>
+                            <input type="submit" onclick="check()" class="btn btn-success lg" name="button">
+                            <span class="Front">  Or  <a href="{% url 'login:login' %}">  login</a> </span>
+
+                            </div>
+                          </form>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- Hello {{sess}} -->
+
+    </body>
+     <script src="https://code.jquery.com/jquery-3.3.1.js" ></script>
+    <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="{% static 'signup/js/App.js' %}"></script>
+    <script type="text/javascript">
+        function check(){
+                 var password = document.getElementById("password").value;
+                 var confirmPassword = document.getElementById("cpassword").value;
+                 var length = password.length;
+                 var error = "";
+                 if (password == confirmPassword ) {
+                     if(length < 8){
+                        error += "Password is too short";
+                        alert(error);
+                    }else{
+                     var redirect = document.getElementById("signUp").method = "POST";
+                   }
+                 }else {
+                    error +="Password mismatch";
+                    alert(error);
+                 }
+                 // document.getElementById("fname").innerHTML = firstName;
+                 // alert(password + confirmPassword);
+                 // window.location.href = "";
+             }
+
+    </script>
+</html>

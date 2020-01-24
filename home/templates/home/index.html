@@ -1,0 +1,124 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta name="theme-color" content="#6a89cc">
+    <meta name="viewport" content="initial-scale=1.0 , maximum-scale=1.0, user-scalable=no">
+    <link rel="icon" href="{% static 'home/img/icon.jpeg' %}">
+    <link rel="stylesheet" href="{% static 'home/css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'home/css/styles.css' %}">
+    <meta charset="utf-8">
+    <title>HiQ | Home</title>
+  </head>
+  <body class="body">
+      <div class="nav">
+            <div class="navbar car">
+              <img src="{% static './home/img/career.svg' %}" class="logo" alt="">
+            </div>
+
+            <div class="navbar ham">
+              <img src="{% static './home/img/hamburger.jpg' %}" class="logo" alt="">
+            </div>
+
+            <div class="navbar options">
+              <a href="{% url 'home:home' %}">Home</a>
+            </div>
+
+            <div class="navbar options">
+              <a href="{% url 'profile:profile' %}">Profile</a>
+            </div>
+
+            <div class="navbar options">
+              <a href="{% url 'events:events' %}">Events</a>
+            </div>
+
+            <div class="navbar options">
+              <a href="{% url 'Feeds:Feeds' %}">Feeds</a>
+            </div>
+
+            <div class="navbar options">
+              <a href="{% url 'gallery:view_photo' %}">Gallery</a>
+            </div>
+<!--
+            <div class="navbar options">
+              <a href="{% url 'developers:contact' %}">Contact</a>
+            </div> -->
+
+            {% if loginshow %}
+
+            <div class="navbar options first">
+                <a href="{% url 'logout:logout' %}"><button type="button" id="showForm"  class="btn btn-danger topbtn" name="button">Log out</button></a>
+            </div>
+
+            {% else %}
+            <div class="navbar options first">
+                <a href="{% url 'login:login' %}"><button type="button" id="showForm"  class="btn btn-success topbtn" name="button">Log in</button></a>
+            </div>
+            {% endif %}
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="navbar first options">
+        <a href="{% url 'home:home' %}">Gallery</a>
+    </div>
+
+
+    <div class="cover1">
+
+    </div>
+    <div class="cover">
+      <h1>HiQ</h1>
+      <p class="motto"> ~Innovating the world~</p>
+    </div>
+
+    <div class="Ideation">
+          <img src="{% static 'home/img/skill.svg' %}" class="img" alt="">
+          <p class="info1">Learn new skills by interacting with the members of this amazing group</p>
+    </div>
+
+    <div class="handsonskills">
+      <img src="{% static 'home/img/skillgrowth.svg' %}" class="img2" alt="">
+      <p class="info2">Boost the skills you have by having a great exposure on hands-on-skills</p>
+    </div>
+
+    <div class="team">
+      <img src="{% static 'home/img/team.svg' %}" class="img3" alt="">
+      <p class="info3">Collaborate with people to build awesome projects</p>
+    </div>
+
+    <div class="gethired">
+      <img src=" {% static 'home/img/hire.svg' %}" class="img4" alt="">
+      <p class="info4">Prepare you for the job market and stand out to the employers</p>
+    </div>
+
+    <div class="ff">
+
+    </div>
+
+    <div class="footer">
+      <div class="container row">
+        <div class="col-md-4">
+          <img src="{% static 'home/img/instagram.png' %}" class="footerIcon" alt="">
+          <img src="{% static 'home/img/twitter.png' %}" class="footerIcon" alt="">
+        </div>
+      </div>
+    </div>
+  </body>
+    <script src="https://code.jquery.com/jquery-3.3.1.js" ></script>
+    <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="{% static 'home/js/App.js' %}"></script>
+    <script>
+      // document.getElementById("showForm").onclick =function(){showForm()};
+    </script>
+</html>

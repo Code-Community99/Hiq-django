@@ -1,0 +1,214 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta name="theme-color" content="#6a89cc">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <link rel="icon" href="{% static './uprofile/img/icon.jpeg' %}">
+    <link rel="stylesheet" href="{% static './uprofile/css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static './uprofile/css/styles.css' %}">
+    <meta charset="utf-8">
+    <title>HiQ | profile </title>
+  </head>
+  <body class="user">
+      <div class="nav">
+        <div class="navbar car">
+          <img src="{% static 'uprofile/img/career.svg' %}" class="logo" alt="">
+        </div>
+        <div class="navbar ham">
+          <img src="{% static 'uprofile/img/hamburger.jpg' %}" class="logo" alt="">
+        </div>
+        <div class="navbar  options">
+          <a href="{% url 'home:home' %}">Home</a>
+        </div>
+        <div class="navbar options">
+          <a href="{% url 'Feeds:Feeds' %}">Feeds</a>
+        </div>
+
+        <div class="navbar options">
+            <a href="{% url 'events:events' %}">Events</a>
+        </div>
+
+         <div class="navbar options">
+          <a href="{% url 'upload:projects' %}">Projects</a>
+        </div>
+        <!-- <div class="navbar options">
+          <a href="{% url 'developers:contact' %}">Contact</a>
+        </div> -->
+
+        <div class="navbar options">
+            <a href="{% url 'gallery:view_photo' %}">Gallery</a>
+        </div>
+
+        <!-- <div class="navbar options">
+            <button type="button" id="showForm" class="btn btn-success topbtn" name="button">Log in</button>
+        </div> -->
+        <!-- <div class="navbar options">
+            <button type="button" id="showForm" class="btn btn-info topbtn" name="button">Sign Up</button>
+        </div> -->
+      </div>
+
+      <div class="userInfo">
+          <form class="userInfo" action="{% url 'profile:update' %}" method="post">
+          <a href="#" title="change profile?">
+              <img src="/media/{{profile}}" class="imgDp" alt="profileImg"> <div class="writeinfo">
+          </a>
+           <span class="profName"><b>{{email}}</b></span>
+            <!-- <strong style="text-decoration:underline;text-align:left">{{username}}</strong> -->
+        </div>
+        <br>
+
+
+
+            {% csrf_token %}
+           <table >
+               <tr>
+                   <td>
+                       <label for="fname">First Name </label>
+                  </td>
+                  <td>
+                       <input class="infoUsers" type="text" id="fname" name="fname" value="{{userinfo.First_Name}}" contenteditable="true" title="Edit this First Name field?">
+                       <br>
+                       <hr size=4 color= "red" >
+                  </td>
+               </tr>
+               <tr>
+
+                   <tr>
+                       <td>
+                           <label for="sname">Second Name </label>
+                      </td>
+                      <td>
+                           <input class="infoUsers" type="text" id="sname" name="lname" value="{{userinfo.Second_name}}" contenteditable="true" title="Edit this Second name field?">
+                           <br>
+                           <hr size=4 color= "red" >
+                      </td>
+                   </tr>
+                   <tr>
+
+
+                   <td>
+                       <label for="email">Email address </label>
+                  </td>
+                  <td>
+                       <input class="infoUsers" type="email" id="email" name="email" value="{{userinfo.Email}}" contenteditable="true" title="Edit this email field?">
+                       <br>
+                       <hr size=4 color= "red">
+                  </td>
+               </tr>
+
+               <tr>
+                   <td>
+                       <label for="phone">Phone</label>
+                  </td>
+                  <td>
+                       <input class="infoUsers" type="text" id="phone" name="pnumber" value="{{userinfo.Phone_Number}}" contenteditable="true" title="Edit this phone number field?">
+                       <br>
+                       <hr size=4 color= "red" >
+                  </td>
+               </tr>
+
+               <tr>
+                   <td>
+                       <label for="password">Password</label>
+                  </td>
+                  <td>
+                       <input class="infoUsers" type="password" id="password" name="password" placeholder="Enter new password" value="" contenteditable="true" title="Edit this password field?">
+                       <br>
+                       <hr size=4 color= "red" >
+                  </td>
+               </tr>
+
+           </table>
+           <input type="submit" name="submit" value="Update" id="submitupdate" class="btn btn-info" title="update user info">
+           <a href="{% url 'upload:upload' %}"><button type="button" class="btn btn-info upload" title="upload project" name="button">Upload Project</button></a>
+           <br>
+           <a href="{% url 'logout:logout' %}"><button type="button" class="btn btn-danger logout" title="Logout {{email}}" name="button">Log Out</button></a>
+        </form>
+
+
+
+
+
+
+        <!--
+
+          USER INFO FROM THE DATABASE
+
+         -->
+
+        <!-- <a href="{% url 'profile:update' %}">
+            <button type="button" class="btn btn-success updateinfo" name="button">Update info</button>
+        </a> -->
+
+      </div>
+      <div class="projectList">
+        <span class="static">
+
+          <div class="container">
+
+               <div class="row">
+
+                  <div class="col-12-md col-12-sm col-12-lg columnx">
+                       <h2 class="title1">Your Projects</h2>
+                       <div class="arrange">
+                       {%for proj in projects %}
+                          <div class="cont">
+
+                              <div class="pro-desc">
+
+                                  <p id="project_name">
+                                      {{proj.project_name}}
+
+                                  </p>
+                                 <!-- <p id="project_owner">
+                                     <h3>{{proj.projectowner}}</h3>
+                                 </p> -->
+                                 <p id="pro-desc">
+                                     {{proj.project_description}}
+                                 </p>
+
+                                 <p id="delete">
+                                     <a href="{% url 'upload:delete_project' proj.project_name %}" title="Delete '{{proj.project_name}}' project?" class="btn btn-danger">
+                                         Delete Project
+                                     </a>
+                                 </p>
+
+                                 <p id="uploadtime">
+                                     Created on {{proj.uploadtime}}
+                                 </p>
+
+                              </div>
+
+                          </div>
+                      <hr style="background-color: navy">
+                      {% endfor %}
+                  </div>
+
+                  </div>
+
+                  <!-- <div class="label col-4-md col-4-sm col-4-lg columnx">
+                      <h2 class="title1">Ongoing</h2>
+                       <p class="labels"> Ongoing</p>
+
+                  </div>
+
+                  <div class="labels col-4-md col-4-sm col-4-lg columnx">
+                      <h2 class="title1">Completed</h2>
+                      <p class="labels"> Completed</p>
+
+                  </div>-->
+
+
+          </div>
+
+      </span>
+
+      </div>
+  </div>
+
+  </body>
+  <script src="https://code.jquery.com/jquery-3.3.1.js" ></script>
+  <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script src="{% static './uprofile/js/App.js' %}"></script>
+</html>

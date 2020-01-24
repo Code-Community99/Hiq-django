@@ -1,0 +1,87 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0 ,user-scalable=no,maximum-scale =1.0">
+        <link rel="stylesheet" href="{% static './upload_pro/upload.css' %}">
+        <link rel="stylesheet" href="{% static './upload_pro/css/bootstrap.css' %}">
+        <!-- <link rel="stylesheet" href="{% static './upload_pro/css/styles.css' %}"> -->
+
+        <title></title>
+    </head>
+    <body>
+
+        <div class="main-navbar container jumbotron">
+
+            <div class="navbar options">
+                 <a href="{% url 'home:home' %}" class="btn btn-info">Home</a>
+            </div>
+
+          <div class="navbar options">
+            <a href="{% url 'events:events' %}" class="btn btn-info">Events</a>
+          </div>
+
+
+          <!-- <div class="navbar options"> -->
+            <!-- <a href="#">Projects</a> -->
+          <!-- </div> -->
+          <div class="navbar options">
+            <a href="{% url 'developers:contact' %}" class="btn btn-info">Contact</a>
+          </div>
+
+          <div class="navbar options">
+            <a href="{% url 'profile:profile' %}" class="btn btn-info">Profile</a>
+          </div>
+
+          <div class="navbar options">
+            <a href="{% url 'Feeds:Feeds' %}" class="btn btn-info">Feeds</a>
+          </div>
+
+        <div class="navbar options">
+            <a href="{% url 'gallery:view_photo' %}" class="btn btn-info">Gallery</a>
+        </div>
+
+        </div>
+
+
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-6" id="deletetab">
+                    '{{pro_del}}' was deleted
+                </div>
+
+                <div class="col-md-6">
+                        <h1>Other Projects</h1>
+                        {% for x in otherpros %}
+
+                            <div class="display-pro">
+                                <p id="projectname">
+                                    {{x.project_name}}
+                                </p>
+
+                                <p id="projectcontent">
+                                    {{x.project_description}}
+
+                                        <small id="projectdate">
+                                            <a href="{% url 'upload:delete_project' x.project_name %}" title="Delete '{{x.project_name}}' project?" class="btn btn-danger">Delete Project</a>
+                                        </small>
+                                    <small id="projectdate">
+                                        {{x.uploadtime}}
+
+                                    </small>
+                                </p>
+
+                            </div>
+
+                        {% endfor %}
+                </div>
+
+            </div>
+
+        </div>
+
+    </body>
+</html>

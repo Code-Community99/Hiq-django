@@ -1,0 +1,46 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta name="theme-color" content="#6a89cc">
+        <meta name="viewport" content="initial-scale=1.0 , maximum-scale=1.0, user-scalable=no">
+        <link rel="icon" href="{% static 'login/img/icon.jpeg' %}">
+        <link rel="stylesheet" href="{% static 'login/css/bootstrap.css' %}">
+        <link rel="stylesheet" href="{% static 'login/css/log.css' %}">
+        <meta charset="utf-8">
+        <title>HiQ | Login</title>
+    </head>
+    <body>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 col-xs-8 col-sm-8 col-lg-8 col-xl-8 login-cont">
+
+                        <div class="form">
+                          <form class="form-group" method="post" action="{% url 'login:login' %}" >
+                              {{error}}
+                              {{alredy}}
+                              {% csrf_token %}
+
+                            <!-- <p class="close">X</p> -->
+                            <div class="content">
+
+                            <label class="k z" for="email">Email</label><br>
+                            <input type="email" id="email" class="form-control" name="email" placeholder="email" required autocomplete="on"><br>
+                            <label for="Password">Password</label><br>
+                            <input type="password" id="password" class="form-control" name="password" placeholder="password" required autocomplete="on">
+                            <br><br>
+                            <input type="submit"  class="btn btn-success lg" name="button">
+                            <span class="backFlip">  Or  <a href="{% url 'signup:signup' %}">Sign Up</a> </span>
+
+                            </div>
+                          </form>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- Hello {{sess}} -->
+
+    </body>
+</html>

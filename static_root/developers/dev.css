@@ -1,0 +1,15 @@
+*
+{
+    background-color: red
+}
+
+.row
+{
+    display: flex;
+    margin: auto;
+}
+
+.row>div
+{
+    flex: 1;
+}

@@ -1,0 +1,43 @@
+*
+{
+    background-image: url('./images/bush.jpg');
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-blend-mode: color-dodge;
+}
+
+h1
+{
+    text-align: center;
+    font-size: 60px;
+    text-shadow: 5px -5px 6px #fff;
+    animation: rot .9s ease-in 1;
+    opacity: .9;
+    color: #0f0;
+    background-color: #000;
+    text-decoration: underline;
+}
+/*
+@keyframes rot {
+    0%
+    {
+        transform: rotateZ(30deg);
+    }
+    25%
+    {
+        transform: rotateZ(-30deg)
+    }
+    50%
+    {
+        transform: rotateZ(200deg)
+    }
+    75%
+    {
+        transform: rotateZ(20deg)
+    }
+    100%
+    {
+        transform: rotateZ(0deg);
+    }
+
+} */

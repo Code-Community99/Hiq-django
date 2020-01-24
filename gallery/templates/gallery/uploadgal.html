@@ -1,0 +1,18 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+
+        <form class="form" action="{% url 'gallery:upload_photo' %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="file" name="image" value="">
+            <input type="submit" name="submit" class="btn btn-info" value="Upload" class="form-control">
+        </form>
+
+    </body>
+</html>

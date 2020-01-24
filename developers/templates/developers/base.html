@@ -1,0 +1,38 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta name="theme-color" content="#6a89cc">
+        <link rel="icon" href="{% static 'developers/img/icon.jpeg' %}">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no,maximum-scale=1.1">
+        <link rel="stylesheet" href="{% static 'developers/css/styles.css' %}">
+        <link rel="stylesheet" href="{% block css %} {% static 'developers/css/bootstrap.css' %} {% endblock %}">
+        <link rel="stylesheet" href="{% block js %} {% endblock %}">
+        <link rel="stylesheet" href="{% static './developers/dev.css' %}">
+
+        <meta charset="utf-8">
+
+        <title>{% block title %} {% endblock %}</title>
+    </head>
+    <body>
+        <div class="content">
+
+            {% block header %} {% endblock %}
+
+        </div>
+
+        <div class="content">
+
+            {% block content %} {% endblock %}
+
+        </div>
+
+        <div class="content">
+
+            {% block footer %} {% endblock %}
+
+        </div>
+
+    </body>
+</html>

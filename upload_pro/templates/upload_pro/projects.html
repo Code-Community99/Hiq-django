@@ -1,0 +1,66 @@
+{% extends './base.html' %}
+{% load static %}
+
+{% block title %} HiQ | Your Projects {% endblock %}
+
+{% block css %} {% static './upload_pro/upload.css' %} {% endblock %}
+
+{% block header %}
+    <h1>Your Projects</h1>
+{% endblock %}
+
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <table border="1">
+                <tr>
+                    <th>Projects Name</th>
+                    <th>Project's description</th>
+                    <th>Upload time</th>
+                    <th>Project File</th>
+                </tr>
+            {% for project in yourprojects %}
+            <tr>
+
+                <td>
+                    <div class="col-3-xs col-3-sm col-3-md col-3-lg divide">
+
+                        <p style = "font-weight:bold;">
+                            {{project.project_name}}
+                        </p>
+                    </div>
+                </td>
+                <td>
+                    <div class="col-3-xm col-3-sm col-3-md col-3-lg divide">
+                        <p>
+                            {{project.project_description}}
+                        </p>
+
+                    </div>
+                </td>
+                <td>
+
+                    <div class="col-3-xs col-3-sm col-3-md col-3-lg divide">
+                        <p>
+                            {{project.uploadtime}}
+                        </p>
+                    </div>
+                </td>
+                <td>
+
+                <div class="col-3-xs col-3-sd col-3-md col-3-lg divide">
+                    <p>
+                        {{project.file}}
+                    </p>
+                </div>
+
+                </td>
+                </tr>
+
+            {% endfor%}
+        </table>
+        </div>
+    </div>
+
+{% endblock %}

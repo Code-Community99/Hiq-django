@@ -1,0 +1,124 @@
+{% extends './base.html' %}
+
+{% load static %}
+
+{% block css%}{% static './events/css/events.css' %} {% endblock %}
+
+{% block title %} Hiq | Events {% endblock %}
+
+{% block header %}
+
+
+    <h1 class="text-center jumbotron">Hiq | Events</h1>
+
+<div class="nav-bar">
+    <div class="navbar first options">
+        <a href="{% url 'home:home' %}" class="btn btn-warning">Home</a>
+    </div>
+    <div class="navbar options">
+        <a href="{% url 'events:events' %}" class="btn btn-warning">Events</a>
+    </div>
+
+    <div class="navbar options">
+      <a href="{% url 'Feeds:Feeds' %}"><button class="btn btn-warning">Feeds</button></a>
+    </div>
+        <!-- <div class="navbar options"> -->
+          <!-- <a href="#">Projects</a> -->
+        <!-- </div> -->
+    <div class="navbar options">
+        <a href="{% url 'developers:contact' %}" class="btn btn-warning">Contact</a>
+    </div>
+
+    <div class="navbar options">
+        <a href="{% url 'profile:profile' %}" class="btn btn-warning">Profile</a>
+    </div>
+
+    <div class="navbar options">
+        <a href="{% url 'gallery:view_photo' %}" class="btn btn-warning">Gallery</a>
+    </div>
+
+</div>
+
+{% endblock %}
+
+
+{% block content %}
+
+    <p class="head">Upcoming events</p>
+
+    <div class="user-post">
+
+        {% for event in events %}
+            <div>
+                <div class="profile">
+                    <img src="/media/{{event.event_organizer.profilepic}}" alt="{{event.event_organizer.First_Name}}">
+                </div>
+
+                <div class="content">
+                    <ul>
+                            <li>
+                                <b style="color:green;"> {{event.event_organizer.Email}}</b>
+                            </li>
+                                {{event.event_description}} Date -> {{event.eventup_date}}
+                                <p style="color:#fff;text-align:right;font-size:10px;">Posted on -> {{event.event_post_date}}</p>
+                    </ul>
+                </div>
+
+            </div>
+            <hr  style="background-color:red;">
+        {% endfor %}
+
+    </div>
+
+    <div class="add_event">
+
+        <a href="{% url 'events:add_event' %}" title = "add event" class="add_event">
+
+            <img src="{% static './events/img/plus.jpg' %}" alt="">
+
+        </a>
+
+    </div>
+
+{% endblock %}
+
+
+{% block footer %}
+
+    <div class="row">
+        <div class="col-4-md">
+            To follow us click on the link below <br>
+            <a href="mailto:hiqpoint@googlegroups.com.com?subject=feedback">Follow developer</a>
+        </div>
+
+        <div class="col-4-md">
+            <div class="nav-bar">
+                <div class="navbar first options">
+                    <a href="{% url 'home:home' %}">Home</a>
+                </div>
+                <div class="navbar options">
+                    <a href="{% url 'events:events' %}">Events</a>
+                </div>
+                    <!-- <div class="navbar options"> -->
+                      <!-- <a href="#">Projects</a> -->
+                    <!-- </div> -->
+
+            </div>
+
+        </div>
+        <div class="col-4-md">
+            <div class="nav-bar">
+
+                <div class="navbar options">
+                    <a href="{% url 'developers:contact' %}">Contact</a>
+                </div>
+
+                <div class="navbar options">
+                    <a href="{% url 'profile:profile' %}">Profile</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
