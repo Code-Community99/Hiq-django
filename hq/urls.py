@@ -8,7 +8,7 @@ from . import views
 handler404 = views.handle404
 
 urlpatterns = [
-    url("/" , include("home.urls")),
+    url("" , include("home.urls")),
     url('admin/', admin.site.urls),
     url("login/" , include("login.urls")),
     url("signup/" , include("signup.urls")),
