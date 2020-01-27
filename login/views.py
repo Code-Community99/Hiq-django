@@ -10,7 +10,11 @@ def login(request):
     error_var = ""
     sess = ""
     alredylog=""
-    events_list.objects.filter(eventup_date__lte = datetime.datetime.now()).delete()
+    try:
+        events_list.objects.filter(eventup_date__lte = datetime.datetime.now()).delete()
+
+    except Exception as e:
+        pass
 
 
     if request.method == 'POST':
