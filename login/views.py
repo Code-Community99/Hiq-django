@@ -6,7 +6,7 @@ from events.models import events_list
 import datetime
 # Create your views here.
 def login(request):
-    form = loginfrm()
+    form = loginfrm(request.POST)
     error_var = ""
     sess = ""
     alredylog=""
@@ -19,6 +19,7 @@ def login(request):
 
     if request.method == 'POST':
         try:
+            form = loginfrm(request.POST)
             logstats = signup_user.objects.get(Email = request.POST['email'])
 
         except:
@@ -29,6 +30,7 @@ def login(request):
             return render (request , "./login/login.html" , context = {"form": form , "error":error_var ,"sess":sess , "alredy":alredylog})
 
         else:
+            form = loginfrm(request.POST)
 
             if logstats.Password == request.POST["password"]:
 
@@ -58,7 +60,7 @@ def login(request):
 
             else:
                 error_var = "Wrong credentials Please try again"
-                return redirect("/")
+                return render (request , "./login/login.html" , context = {"form": form , "error":error_var ,"sess":sess , "alredy":alredylog})
     else:
         form = loginfrm(request.POST)
         return render (request , "./login/login.html" , context = {"form": form , "error":error_var ,"sess":sess , "alredy":alredylog})

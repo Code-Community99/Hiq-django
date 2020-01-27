@@ -25,13 +25,19 @@ def commentview(request , feedid):
             return redirect("/login/")
 
         else:
-            form = commentform()
-            fid = feedid
-            feedcontent = feeds_list.objects.get(Fid = fid)
+            try:
+                form = commentform()
+                fid = feedid
+                feedcontent = feeds_list.objects.get(Fid = fid)
 
-            comments = comment_list.objects.filter(fid_id = feedid).order_by("comment_post_time")
-            return render(request , "./comments/comments.html/" , context = {"comments":comments , "form":form,"fid":fid ,
-             "fidcontent":feedcontent,"loginshow":lcontrol})
+                comments = comment_list.objects.filter(fid_id = feedid).order_by("comment_post_time")
+
+            except Exception as e:
+                return redirect("/Feeds/")
+
+            else:
+                return render(request , "./comments/comments.html/" , context = {"comments":comments , "form":form,"fid":fid ,
+                "fidcontent":feedcontent,"loginshow":lcontrol})
 
 
 

@@ -28,7 +28,7 @@
         <div class="navbar options">
             <a href="{% url 'events:events' %}">Events</a>
         </div>
-        
+
         <div class="navbar options">
             <a href="{% url 'gallery:view_photo' %}">Gallery</a>
         </div>
@@ -42,10 +42,11 @@
       </div>
 
       <div class="userInfo">
-          <form class="userInfo" action="{% url 'profile:update' %}" method="post">
+          <form class="userInfo" action="{% url 'profile:update' %}" method="post" enctype="multipart/form-data">
           <a href="#" title="change profile?">
               <img src="/media/{{profile}}" class="imgDp" alt="profileImg"> <div class="writeinfo">
           </a>
+          <input type="file" name="imq" value="">
            <span class="profName"><b>{{email}}</b></span>
             <!-- <strong style="text-decoration:underline;text-align:left">{{username}}</strong> -->
         </div>

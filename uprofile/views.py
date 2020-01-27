@@ -50,6 +50,14 @@ def update(request):
         uobject.Phone_Number = phone
 
         try:
+            img = request.FILES["imq"]
+        except Exception as e:
+            uobject.profilepic = img
+        else:
+            uobject.profilepic = img
+
+
+        try:
             request.POST["password"][0]
 
         except Exception as e:
