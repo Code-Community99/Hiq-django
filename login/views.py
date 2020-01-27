@@ -54,11 +54,11 @@ def login(request):
                 request.session.set_expiry(0)
 
                 # redirect users to their profile page
-                return redirect("profile/")
+                return redirect("/")
 
             else:
                 error_var = "Wrong credentials Please try again"
-                return redirect("profile/")
+                return redirect("/")
     else:
         form = loginfrm(request.POST)
         return render (request , "./login/login.html" , context = {"form": form , "error":error_var ,"sess":sess , "alredy":alredylog})

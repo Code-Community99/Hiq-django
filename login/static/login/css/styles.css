@@ -13,7 +13,8 @@ p{
 
   .body{
     background-image: linear-gradient(125deg,#b8e974,#6a89cc);
-    height: 430vh;
+    height: 100vh;
+    z-index: 2;
   }
   .logo{
     height: 50px;
@@ -91,6 +92,15 @@ p{
     background: url("../img/biz.jpg") left no-repeat;
     -webkit-text-fill-color:transparent;
     -webkit-background-clip:text;
+  }
+  .form{
+    position: fixed;
+    z-index: 4;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: none;
   }
   .motto{
     position: absolute;
@@ -198,7 +208,7 @@ p{
   }
   .form{
     position: fixed;
-    z-index: 4;
+    z-index: 3;
     top: 0;
     bottom: 0;
     left: 0;
@@ -317,7 +327,7 @@ p{
 @media only screen and (max-width:800px){
   .body{
     background-image: linear-gradient(125deg,#b8e974,#6a89cc);
-    height: 220vh;
+    min-height: 50vh;
   }
   .logo{
     height: 40px;

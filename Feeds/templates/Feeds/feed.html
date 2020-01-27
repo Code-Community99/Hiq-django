@@ -4,7 +4,7 @@
 <head>
   <meta name="theme-color" content="#6a89cc">
   <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
-  <link rel="icon" href="{% static './Feeds/img/icon.jpeg' %}">
+  <link rel="icon" href="{% static './Feeds/img/HiQ.png' %}">
  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="{% static './Feeds/css/styles.css' %}">
   <meta charset="utf-8">
@@ -13,7 +13,7 @@
 <body class="body">
     <div class="nav">
           <div class="navbar car">
-            <img src="{% static './home/img/career.svg' %}" class="logo" alt="">
+            <img src="{% static './home/img/HiQ.png' %}" class="logo" alt="">
           </div>
 
           <div class="navbar ham">
@@ -61,14 +61,13 @@
         <form class="" action="{% url 'Feeds:addFeeds' %}" method="post">
             {% csrf_token %}
             <textarea name="feed" class="text-feed" rows="3"  placeholder="write your feed" required></textarea>
-           <button class="btn btn-default post-btn" name="button">Post</button>
+           <button class="btn btn-info post-btn" name="button">Post</button>
         </form>
     </div>
     <hr>
 
 
     {% for update in updates %}
-
 
     <div class="feed">
       <div class="row">
@@ -96,6 +95,6 @@
   </div>
   </body>
   <script src="https://code.jquery.com/jquery-3.3.1.js" ></script>
- <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
  <script src="{% static 'Feeds/js/App.js' %}"></script>
 </html>

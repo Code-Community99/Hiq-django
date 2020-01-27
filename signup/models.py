@@ -11,5 +11,5 @@ class signup_user(models.Model):
     profilepic = models.ImageField(max_length = 100 , default = "None")
     logstatus = models.BooleanField(max_length = 3 , default = False)
 
-    # class Meta:
-    #     db_table = "users"
+    class Meta:
+        db_table = "users"

@@ -9,7 +9,7 @@
 
 body{
     background-image: linear-gradient(125deg,#b8e974,#6a89cc);
-    
+    min-height: 100vh;
 }
 
 .login-cont

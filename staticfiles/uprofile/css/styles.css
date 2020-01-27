@@ -45,7 +45,9 @@ p{
   .navbar>a{
     text-decoration: none;
     color: black;
+    font-size: 17px;
   }
+
   .topbtn{
     height: 30px;
   }
