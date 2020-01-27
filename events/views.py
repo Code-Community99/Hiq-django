@@ -24,7 +24,11 @@ def events(request):
             return redirect("/login/")
 
         else:
-            events_list.objects.filter(eventup_date__lte = datetime.datetime.now()).delete()
+            try:
+                events_list.objects.filter(eventup_date__lte = datetime.datetime.now()).delete()
+            except Exception as e:
+                pass
+            
             event_var = events_list.objects.all().order_by("eventup_date")
             # signup_user.objects.get()
 
