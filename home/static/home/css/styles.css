@@ -312,7 +312,10 @@ p{
   }
   .logo{
     height: 40px;
-    display: none;
+    /* display: none; */
+  }
+  .logo3{
+      display: none;
   }
   .nav{
     position: fixed;
