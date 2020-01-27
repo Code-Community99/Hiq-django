@@ -312,6 +312,7 @@ p{
   }
   .logo{
     height: 40px;
+    display: none;
   }
   .nav{
     position: fixed;
