@@ -5,8 +5,6 @@ from django.conf.urls.static import static
 
 from . import views
 
-handler404 = views.handle404
-
 urlpatterns = [
     url("" , include("home.urls")),
     url('admin/', admin.site.urls),
@@ -20,3 +18,8 @@ urlpatterns = [
     url("Feeds/" , include("Feeds.urls")),
     url("comments/" , include("comments.urls")),
 ]+static(settings.MEDIA_URL , document_root = settings.MEDIA_ROOT)
+
+
+
+
+handler404 = views.handle404
