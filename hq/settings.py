@@ -1,4 +1,4 @@
-import django_heroku
+import django_heroku,dj_database_url
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -102,6 +102,11 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'hq.sqlite3'),
     }
 }
+
+
+db_from_env = dj_database_url.config()
+
+DATABASES['default'].update(db_from_env)
 
 
 
