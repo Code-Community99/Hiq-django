@@ -6,7 +6,7 @@
     <meta name="theme-color" content="#6a89cc">
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <link rel="icon" href="{% static './comments/img/icon.jpeg' %}">
-    <link rel="stylesheet" href="{% static './comments/css/bootstrap.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="{% static './comments/css/styles.css' %}">
     <meta charset="utf-8">
     <title>HiQ | Feed</title>
@@ -40,11 +40,7 @@
             <div class="navbar options">
               <a href="{% url 'gallery:view_photo' %}">Gallery</a>
             </div>
-<!--
-            <div class="navbar options">
-              <a href="{% url 'developers:contact' %}">Contact</a>
-            </div> -->
-
+            
             {% if loginshow %}
 
                 <div class="navbar options first">

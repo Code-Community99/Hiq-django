@@ -5,7 +5,7 @@
     <meta name="theme-color" content="#6a89cc">
     <meta name="viewport" content="initial-scale=1.0 , maximum-scale=1.0, user-scalable=no">
     <link rel="icon" href="{% static 'home/img/icon.jpeg' %}">
-    <link rel="stylesheet" href="{% static 'home/css/bootstrap.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="{% static 'home/css/styles.css' %}">
     <meta charset="utf-8">
     <title>HiQ | Home</title>
@@ -13,7 +13,7 @@
   <body class="body">
       <div class="nav">
             <div class="navbar car">
-              <img src="{% static './home/img/career.svg' %}" class="logo" alt="">
+              <img src="{% static './home/img/HiQ.png' %}" class="logo" alt="">
             </div>
 
             <div class="navbar ham">
@@ -39,11 +39,6 @@
             <div class="navbar options">
               <a href="{% url 'gallery:view_photo' %}">Gallery</a>
             </div>
-<!--
-            <div class="navbar options">
-              <a href="{% url 'developers:contact' %}">Contact</a>
-            </div> -->
-
             {% if loginshow %}
 
             <div class="navbar options first">

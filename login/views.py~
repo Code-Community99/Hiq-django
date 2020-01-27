@@ -21,9 +21,6 @@ def login(request):
 
             error_var = "no user with name exists"
 
-            form = loginfrm(request.POST)
-            return render (request , "./login/login.html" , context = {"form": form , "error":error_var ,"sess":sess , "alredy":alredylog})
-
         else:
 
             if logstats.Password == request.POST["password"]:
@@ -54,6 +51,7 @@ def login(request):
 
             else:
                 error_var = "Wrong credentials Please try again"
+                                error_var = "Wrong credentials Please try again"
                 return redirect("profile/")
     else:
         form = loginfrm(request.POST)

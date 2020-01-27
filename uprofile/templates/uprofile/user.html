@@ -5,7 +5,7 @@
     <meta name="theme-color" content="#6a89cc">
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <link rel="icon" href="{% static './uprofile/img/icon.jpeg' %}">
-    <link rel="stylesheet" href="{% static './uprofile/css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static './uprofile/css/styles.css' %}">
     <meta charset="utf-8">
     <title>HiQ | profile </title>
@@ -32,10 +32,6 @@
          <div class="navbar options">
           <a href="{% url 'upload:projects' %}">Projects</a>
         </div>
-        <!-- <div class="navbar options">
-          <a href="{% url 'developers:contact' %}">Contact</a>
-        </div> -->
-
         <div class="navbar options">
             <a href="{% url 'gallery:view_photo' %}">Gallery</a>
         </div>
