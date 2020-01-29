@@ -170,7 +170,7 @@ os.path.join(BASE_DIR , "comments/static/"),
 
 
 
-MEDIA_URL = "/media/"
+MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR , "media_root/")
 # MEDIA_ROOT = os.path.join(BASE_DIR , "media_root/")
 django_heroku.settings(locals())
