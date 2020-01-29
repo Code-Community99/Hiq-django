@@ -19,6 +19,7 @@ def login(request):
 
     if request.method == 'POST':
         try:
+
             form = loginfrm(request.POST)
             logstats = signup_user.objects.get(Email = request.POST['email'])
 
@@ -30,6 +31,7 @@ def login(request):
             return render (request , "./login/login.html" , context = {"form": form , "error":error_var ,"sess":sess , "alredy":alredylog})
 
         else:
+
             form = loginfrm(request.POST)
 
             if logstats.Password == request.POST["password"]:
@@ -58,9 +60,13 @@ def login(request):
                 # redirect users to their profile page
                 return redirect("/")
 
+
             else:
                 error_var = "Wrong credentials Please try again"
                 return render (request , "./login/login.html" , context = {"form": form , "error":error_var ,"sess":sess , "alredy":alredylog})
+
+
+
     else:
         form = loginfrm(request.POST)
         return render (request , "./login/login.html" , context = {"form": form , "error":error_var ,"sess":sess , "alredy":alredylog})
