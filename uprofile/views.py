@@ -51,8 +51,10 @@ def update(request):
 
         try:
             img = request.FILES["imq"]
+
         except Exception as e:
-            uobject.profilepic = img
+            pass
+
         else:
             uobject.profilepic = img
 
