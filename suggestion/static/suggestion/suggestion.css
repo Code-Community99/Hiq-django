@@ -1,3 +1,59 @@
+*
+{
+
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    top:0;
+
+}
+
+body
+{
+    background-image: linear-gradient(125deg,#b8e974,#6a89cc);
+    min-height: 100vh;
+}
+
+
+
+.signup-cont
+{
+    width: 50%;
+    margin: 0px auto;
+    /* background-color: red; */
+}
+form{
+    margin:  0 auto;
+    width: 60%;
+    position: absolute;
+    height: 75%;
+    left:20%;
+    background-color: inherit;
+    margin-top: 0%;
+}
+
+#email , #password,#password,#cpassword,#fname,#lname,#profile{
+    height: 40px;
+    border-radius: 5px;
+    margin:1px;
+    width: 95%;
+}
+
+.title{
+	text-align: center;
+}
+label{
+	margin: 0px;
+	padding:0px;
+}
+input{
+	padding-top: 0px;
+	margin: 0px;
+}
+
+
+
+
 *{
   margin: 0;
   padding: 0;
@@ -36,20 +92,11 @@ p{
 
   }
   .navbar>a{
-    text-decoration: underline;
+    text-decoration: none;
     color: black;
     font-size: 17px;
-    color: #11f;
   }
 
-
-.navbar>a:hover
-{
-    text-decoration: underline;
-    font-size: 1.5em;
-    text-shadow: 1px 1px 1px #111;
-    cursor:cell;
-}
 
   .topbtn{
     height: 30px;
@@ -197,13 +244,12 @@ p{
     margin-right: 10%;
   }
   .form{
-    position: fixed;
     z-index: 4;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
-    display: none;
+    display: block;
   }
   .login{
     background-image: linear-gradient(125deg,#b8e974,#6a89cc);
@@ -321,6 +367,10 @@ p{
   }
   .logo{
     height: 40px;
+    /* display: none; */
+  }
+  .logo3{
+      display: none;
   }
   .nav{
     position: fixed;
@@ -496,13 +546,12 @@ p{
     margin-right: 10%;
   }
   .form{
-    position: fixed;
     z-index: 4;
     top:0;
     bottom: 0;
     left: 0;
     right: 0;
-    display: none;
+    display: block;
   }
 
   .login{
@@ -538,10 +587,9 @@ p{
   .content{
     position: absolute;
     top: 0;
-    width: 100%;
     bottom: 0;
-    right: 0%;
-    left: 0%;
+    right: 5%;
+    left: 15%;
   }
   .backContent{
     position: absolute;
@@ -611,8 +659,5 @@ p{
   }
   .label{
     display: flex;
-  }
-  .FormRes{
-      width: 100%;
   }
 }
