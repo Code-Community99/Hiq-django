@@ -7,11 +7,12 @@ from django.contrib.auth.hashers import make_password
 def signup(request):
     error_log = {}
     if request.method == "POST":
-        
+
         try:
             signup_user.objects.get(Email = request.POST["email"])
 
         except Exception as e:
+            print(len(make_password(request.POST['password'])))
 
             signup_user.objects.create(First_Name = request.POST["fname"] , Second_name  = request.POST['sname'] ,
             Password = make_password(request.POST['password']) , profilepic = request.FILES['profile'], Email = request.POST['email'] , Phone_Number = request.POST['pnumber'])
