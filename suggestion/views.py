@@ -4,6 +4,7 @@ from .models import suggetionbox
 def suggest(request):
     frm = sugfrm()
     if request.method=="POST":
+
         errorlog = ""
         try:
             request.session["email"]
