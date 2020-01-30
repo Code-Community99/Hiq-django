@@ -4,12 +4,17 @@ from signup.models import signup_user
 from .forms import loginfrm
 from events.models import events_list
 import datetime
+from django.contrib.auth.hashers import check_password
+
+
 # Create your views here.
-def login(request):
+def login(request , param = ""):
+
     form = loginfrm(request.POST)
     error_var = ""
     sess = ""
-    alredylog=""
+    alredylog = param
+    print(alredylog)
     try:
         events_list.objects.filter(eventup_date__lte = datetime.datetime.now()).delete()
 
@@ -34,12 +39,7 @@ def login(request):
 
             form = loginfrm(request.POST)
 
-            if logstats.Password == request.POST["password"]:
-
-                # if logstats.logstatus:
-                #     alredylog = r"This account is already logged in, Please try again...."
-                #
-                # else:
+            if check_password(request.POST['password'] , logstats.Password):
                 request.session["username"] = logstats.First_Name
 
                 logstats.logstatus = True

@@ -1,5 +1,7 @@
 from django.shortcuts import render,redirect
 from .models import signup_user
+from django.contrib.auth.hashers import make_password
+
 # Create your views here.
 
 def signup(request):
@@ -11,7 +13,7 @@ def signup(request):
         except Exception as e:
 
             signup_user.objects.create(First_Name = request.POST["fname"] , Second_name  = request.POST['sname'] ,
-            Password = request.POST['password'] , profilepic = request.FILES['profile'], Email = request.POST['email'] , Phone_Number = request.POST['pnumber'])
+            Password = make_password(request.POST['password']) , profilepic = request.FILES['profile'], Email = request.POST['email'] , Phone_Number = request.POST['pnumber'])
             return render(request , "./login/login.html")
 
         else:
