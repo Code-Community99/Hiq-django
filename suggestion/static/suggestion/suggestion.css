@@ -36,11 +36,20 @@ p{
 
   }
   .navbar>a{
-    text-decoration: none;
+    text-decoration: underline;
     color: black;
     font-size: 17px;
+    color: #11f;
   }
 
+
+.navbar>a:hover
+{
+    text-decoration: underline;
+    font-size: 1.5em;
+    text-shadow: 1px 1px 1px #111;
+    cursor:cell;
+}
 
   .topbtn{
     height: 30px;
@@ -312,10 +321,6 @@ p{
   }
   .logo{
     height: 40px;
-    /* display: none; */
-  }
-  .logo3{
-      display: none;
   }
   .nav{
     position: fixed;
@@ -533,9 +538,10 @@ p{
   .content{
     position: absolute;
     top: 0;
+    width: 100%;
     bottom: 0;
-    right: 5%;
-    left: 15%;
+    right: 0%;
+    left: 0%;
   }
   .backContent{
     position: absolute;
@@ -605,5 +611,8 @@ p{
   }
   .label{
     display: flex;
+  }
+  .FormRes{
+      width: 100%;
   }
 }
