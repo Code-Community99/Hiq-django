@@ -9,4 +9,5 @@ class hiq_users_disp(admin.ModelAdmin):
 
 
 
+
 admin.site.register(signup_user , hiq_users_disp)
