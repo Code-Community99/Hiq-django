@@ -17,6 +17,7 @@ urlpatterns = [
     url("gallery/" , include("gallery.urls")),
     url("Feeds/" , include("Feeds.urls")),
     url("comments/" , include("comments.urls")),
+    
     # url("suggestions/" , include("suggestion.urls")),
 
 ]+static(settings.MEDIA_URL , document_root = settings.MEDIA_ROOT)
