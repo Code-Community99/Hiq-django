@@ -7,6 +7,7 @@ from django.contrib.auth.hashers import make_password
 def signup(request):
     error_log = {}
     if request.method == "POST":
+        
         try:
             signup_user.objects.get(Email = request.POST["email"])
 
