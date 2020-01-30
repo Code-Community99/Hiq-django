@@ -13,7 +13,7 @@ class suggetion_box(models.Model):
 
 
     class Meta:
-        db_table = "suggetions"
+        db_table = "suggestions"
 
 
 
