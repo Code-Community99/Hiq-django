@@ -46,7 +46,36 @@ label{
 	margin: 0px;
 	padding:0px;
 }
+
+
 input{
 	padding-top: 0px;
 	margin: 0px;
+}
+
+
+#suggetion-header
+{
+    text-align: center;
+    text-decoration: underline;
+
+}
+
+
+.suggestion
+{
+    box-sizing: border-box;
+    padding: 2vw;
+    margin:1vw;
+    background-color: #fff;
+    border-radius: 1.5vw;
+}
+
+
+
+img
+{
+    border-radius: 50%;
+    width: 7vw;
+    height: 7vw;
 }

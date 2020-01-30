@@ -15,7 +15,7 @@ def commentview(request , feedid):
     except:
         lcontrol = False
         uname = "You are not yet logged in."
-        return redirect("/login")
+        return redirect("/login/")
 
     else:
         lcontrol = True

@@ -1,12 +1,15 @@
-from django.forms import ModelForm
-from .models import suggetionbox
+from django.forms import ModelForm ,Textarea
+from .models import suggetion_box
 
 
 
 class sugfrm(ModelForm):
     class Meta:
-        model = suggetionbox
-        fields = ("suggcontent",)
+        model = suggetion_box
+        widgets = {
+        'suggestion':Textarea(attrs = {"rows":6 , "cols":40})
+        }
+        fields = ("suggestion",)
 
 
 

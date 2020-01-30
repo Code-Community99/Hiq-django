@@ -10,6 +10,7 @@ class signup_user(models.Model):
     Phone_Number = models.CharField(max_length = 30)
     profilepic = models.ImageField(max_length = 100 , default = "None")
     logstatus = models.BooleanField(max_length = 3 , default = False)
+    admin_status = models.BooleanField(max_length = 3, default = 0)
 
     class Meta:
         db_table = "users"

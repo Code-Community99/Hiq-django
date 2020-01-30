@@ -67,7 +67,7 @@ TEMPLATES = [
                 os.path.join(BASE_DIR , "Feeds/templates/Feeds"),
                 os.path.join(BASE_DIR , "hq/templates/"),
                 os.path.join(BASE_DIR , "comments/templates/"),
-                # os.path.join(BASE_DIR , "suggestion/templates/"),
+                os.path.join(BASE_DIR , "suggestion/templates/"),
                 ],
         'APP_DIRS': True,
         'OPTIONS': {
