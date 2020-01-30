@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'gallery',
     'Feeds',
     'comments',
-    # 'suggestion',
+    'suggestion',
 ]
 
 MIDDLEWARE = [
@@ -167,7 +167,7 @@ os.path.join(BASE_DIR , "gallery/static/"),
 os.path.join(BASE_DIR , "Feeds/static/"),
 os.path.join(BASE_DIR , "hq/static/"),
 os.path.join(BASE_DIR , "comments/static/"),
-# os.path.join(BASE_DIR , "suggestion/static/"),
+os.path.join(BASE_DIR , "suggestion/static/"),
 ]
 
 
