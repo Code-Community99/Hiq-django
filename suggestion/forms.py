@@ -10,12 +10,3 @@ class sugfrm(ModelForm):
         'suggestion':Textarea(attrs = {"rows":6 , "cols":40})
         }
         fields = ("suggestion",)
-
-
-
-        # widgets = {
-        # "suggcontent":"textarea",
-        #
-        #
-        #
-        # }
