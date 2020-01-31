@@ -1,0 +1,138 @@
+{% extends './base.html' %}
+{% load static %}
+
+{% block title %} HiQ | Suggetions {% endblock %}
+
+{% block css %} {% static 'suggestion/suggestion.css' %}{% endblock %}
+
+
+{% block header %}  {% endblock %}
+
+
+{% block content %}
+<div class="nav">
+    <div class="nav">
+          <div class="navbar car">
+            <img src="{% static './home/img/HiQ.png' %}" class="logo" alt="">
+          </div>
+
+          <div class="navbar ham">
+            <img src="{% static './home/img/hamburger.jpg' %}" class="logo" alt="">
+          </div>
+
+          <div class="navbar options">
+            <a href="{% url 'home:home' %}">Home</a>
+          </div>
+
+          <div class="navbar options">
+            <a href="{% url 'profile:profile' %}">Profile</a>
+          </div>
+
+          <div class="navbar options">
+            <a href="{% url 'events:events' %}">Events</a>
+          </div>
+
+          <div class="navbar options">
+            <a href="{% url 'Feeds:Feeds' %}">Feeds</a>
+          </div>
+
+          <div class="navbar options">
+            <a href="{% url 'gallery:view_photo' %}">Gallery</a>
+          </div>
+
+
+          <div class="navbar options">
+              <a href="{% url 'suggestions:suggest' %}">Suggestions</a>
+          </div>
+
+
+          <div class="navbar options">
+            <a href="mailto:anornymous99@gmail.com?subject=Bug">Report a bug</a>
+          </div>
+
+
+
+          {% if loginshow %}
+
+              <div class="navbar options first">
+                  <a href="{% url 'logout:logout' %}"><button type="button" id="showForm"  class="btn btn-danger topbtn" name="button">Log out</button></a>
+              </div>
+
+          {% else %}
+
+          <div class="navbar options first">
+              <a href="{% url 'login:login' %}"><button type="button" id="showForm"  class="btn btn-success topbtn" name="button">Log in</button></a>
+          </div>
+          {% endif %}
+
+      </div>
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-xm-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+
+                <label >{{errorlog}}</label>
+
+                <form class="form-vertical" method="post">
+
+                    {% csrf_token %}
+
+                    <div class="form-group">
+                        {{signup}}
+                    </div>
+
+                    <div class="form-check">
+                        <input type="checkbox" id="showuser" class="form-check-input" name="uname" checked="true" value="1">
+
+                        <label for="showuser" class=form-check-label">Associate your name with this suggetion? </label>
+
+                    </div>
+
+                    <input type="submit" name="submit" class="btn btn-info" value="Suggest">
+
+                </form>
+            </div>
+            <div class=" col-xm-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                {% if access.admin_status %}
+                        <h2 id = "suggetion-header">Suggestions</h2>
+
+                        {% for suggestion in suggestion_data %}
+                                <div class="suggestion">
+                                    <dl class="">
+                                        <dt>
+
+                                            <h5><img src="/media/{{suggestion.suggestuser.profilepic}}" alt="{{suggestion.suggestuser.Email}}"> {{suggestion.suggestuser.Email}}</h5>
+
+                                            Dear Admin:
+
+                                        </dt>
+                                        <dd>
+                                            <pre>    {{suggestion.suggestion}} </pre>
+
+                                        </dd>
+                                    </dl>
+                                    <a href="{% url 'suggestions:delete' suggestion.sid %}"><button type="button" name="button" class="btn btn-danger">Delete</button></a>
+                                        <a href="{% url 'suggestions:suggestion' suggestion.sid %}"><button type="button" name="button" class="btn btn-primary"> Post </button></a>
+                                </div>
+
+                        {% endfor %}
+
+                {% else %}
+                <h2 id = "suggetion-header">Suggestions</h2>
+
+                {% for data in suggestP %}
+                    <div class="suggestion">
+                        <h5><img src="/media/{{data.suggestuser.profilepic}}" alt="{{data.suggestuser.Email}}">{{data.suggestuser.First_Name}}</h5>
+                        <p>
+                            {{data.suggestion}}
+                        </p>
+                    </div>
+                {% endfor %}
+
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
