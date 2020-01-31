@@ -7,6 +7,7 @@ from signup.models import signup_user
 
 
 def suggest(request):
+
     try:
         suggestion_access = request.session['email']
 
@@ -19,6 +20,8 @@ def suggest(request):
         suggestP = public_suggetion_box.objects.all()
 
         suggestion_data = suggetion_box.objects.all()
+        loginshow = suggestion_access.logstatus
+
         if request.method=="POST":
 
             errorlog = ""
@@ -45,7 +48,7 @@ def suggest(request):
                     # return render( request, "suggestion/suggest.html" , context = {"signup":frm , "errorlog":errorlog , "access":suggestion_access})
 
         else:
-            return render( request, "suggestion/suggest.html" , context = {"signup":frm , "access":suggestion_access , "suggestion_data":suggestion_data , "suggestP":suggestP})
+            return render( request, "suggestion/suggest.html" , context = {"signup":frm , "access":suggestion_access , "suggestion_data":suggestion_data , "suggestP":suggestP , "loginshow":loginshow})
 
 
 
