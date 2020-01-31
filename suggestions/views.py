@@ -57,6 +57,7 @@ def post_publoc(request , sugid):
     try:
             psdata = suggetion_box.objects.get(sid = sugid)
             public_suggetion_box.objects.create(suggestuser_id =  psdata.suggestuser_id, suggestion = psdata.suggestion)
+            psdata.delete()
 
     except Exception as e:
 
