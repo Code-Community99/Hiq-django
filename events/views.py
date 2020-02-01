@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from .forms import eventfrm
 from .models import events_list
 import datetime
+from django.utils import timezone
 # Create your views here.
 from signup.models import signup_user
 
@@ -25,10 +26,10 @@ def events(request):
 
         else:
             try:
-                events_list.objects.filter(eventup_date__lte = datetime.datetime.now()).delete()
+                events_list.objects.filter(eventup_date__lte = timezone.now()).delete()
             except Exception as e:
                 pass
-            
+
             event_var = events_list.objects.all().order_by("eventup_date")
             # signup_user.objects.get()
 

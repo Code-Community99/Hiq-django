@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from .forms import loginfrm
 from events.models import events_list
 import datetime
+from django.utils import timezone
 from signup.models import signup_user
 from django.contrib.auth.hashers import make_password
 
@@ -10,7 +11,8 @@ from django.contrib.auth.hashers import make_password
 # Create your views here.
 def home(request):
     try:
-        events_list.objects.filter(eventup_date__lte = datetime.datetime.now()).delete()
+        events_list.objects.filter(eventup_date__lte = timezone.now()).delete()
+        pass
     except Exception as e:
         pass
     else:

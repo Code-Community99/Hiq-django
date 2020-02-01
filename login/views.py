@@ -3,26 +3,26 @@ from django.shortcuts import render,redirect
 from signup.models import signup_user
 from .forms import loginfrm
 from events.models import events_list
-import datetime
+from django.utils import timezone
 from django.contrib.auth.hashers import check_password
 
 
 # Create your views here.
 def login(request , param = ""):
 
-    form = loginfrm(request.POST)
     error_var = ""
     sess = ""
     alredylog = param
     print(alredylog)
     try:
-        events_list.objects.filter(eventup_date__lte = datetime.datetime.now()).delete()
+        events_list.objects.filter(eventup_date__lte = timezone.now()).delete()
 
     except Exception as e:
         pass
 
 
     if request.method == 'POST':
+        form = loginfrm(request.POST)
         try:
 
             form = loginfrm(request.POST)
@@ -68,5 +68,5 @@ def login(request , param = ""):
 
 
     else:
-        form = loginfrm(request.POST)
+        form = loginfrm()
         return render (request , "./login/login.html" , context = {"form": form , "error":error_var ,"sess":sess , "alredy":alredylog})
