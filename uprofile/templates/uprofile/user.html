@@ -1,4 +1,5 @@
 {% load static %}
+{% load cloudinary %}
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -58,7 +59,8 @@
       <div class="userInfo">
           <form class="userInfo" action="{% url 'profile:update' %}" method="post" enctype="multipart/form-data">
           <a href="#" title="change profile?">
-              <img src="/media/{{profile}}" class="imgDp" alt="profileImg"> <div class="writeinfo">
+              <!-- <img src="/media/{{}}" class="imgDp" alt="profileImg"> -->
+                {% cloudinary profile.url className="imgDp" alt="profileImg" height=200 width=100 %}<div class="writeinfo">
           </a>
           <input type="file" name="imq" value="">
            <span class="profName"><b>{{email}}</b></span>

@@ -1,6 +1,8 @@
 import django_heroku,dj_database_url
 import os
-
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -98,6 +100,11 @@ WSGI_APPLICATION = 'hq.wsgi.application'
 # }
 #
 
+cloudinary.config(
+    cloud_name = "hnrzh8e6y",
+    api_key = "155398246326869",
+    api_secret = "DvstqWdcXyvYw1V-F94yAPReib4"
+)
 
 
 DATABASES = {
@@ -111,11 +118,6 @@ DATABASES = {
 db_from_env = dj_database_url.config()
 
 DATABASES['default'].update(db_from_env)
-
-
-
-
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
